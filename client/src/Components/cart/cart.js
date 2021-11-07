@@ -31,7 +31,15 @@ function loadScript(src) {
   });
 }
 
-async function displayRazorpay(amount, currency, name, id, email, setPayment) {
+async function displayRazorpay(
+  amount,
+  currency,
+  name,
+  id,
+  email,
+  setPayment,
+  products
+) {
   const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
 
   if (!res) {
@@ -48,8 +56,11 @@ async function displayRazorpay(amount, currency, name, id, email, setPayment) {
     image:
       'https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg',
     order_id: id,
-    handler: function (response) {
-      // alert(response.razorpay_signature)
+    handler: async function (response) {
+      console.log('Razor pay', response);
+      await axios.post('/api/history', products);
+      const res = await axios.get('/api/history');
+      console.log('History User', res.data);
       //removeAllProducts();
       setPayment(true);
     },
@@ -62,12 +73,11 @@ async function displayRazorpay(amount, currency, name, id, email, setPayment) {
   paymentObject.open();
 }
 
-async function handleCheckout(val, user, setPayment) {
+async function handleCheckout(val, user, setPayment, products) {
   // call api here
   // api should send details like amount,currency,name,id,email,phone
   // displayRazorpay();
   const res = await axios.post('/api/razorpay/', { amount: val });
-  console.log(res.data);
 
   displayRazorpay(
     val,
@@ -75,12 +85,14 @@ async function handleCheckout(val, user, setPayment) {
     user.username,
     res.data.id,
     user.email,
-    setPayment
+    setPayment,
+    products
   );
 }
 
 function checkout(products, totalQuantity, totalPrice, user, setPayment) {
   const val = totalPrice(products);
+  console.log(products);
   if (products.length != 0) {
     return (
       <div class="row justify-content-center">
@@ -90,7 +102,7 @@ function checkout(products, totalQuantity, totalPrice, user, setPayment) {
           <button
             class="button-cart"
             onClick={() => {
-              handleCheckout(val, user, setPayment);
+              handleCheckout(val, user, setPayment, products);
             }}
           >
             {' '}

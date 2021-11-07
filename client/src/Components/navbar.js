@@ -17,7 +17,7 @@ class Navbar extends React.Component {
       <div className="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark ProductsNavbar">
           <Link class="navbar-brand" to="/">
-            <HomeIcon/>
+            <HomeIcon />
           </Link>
           <button
             class="navbar-toggler"
@@ -75,7 +75,11 @@ class Navbar extends React.Component {
             </ul>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <Link style={{textDecoration:'none'}} class="nav-link" to="/user/cart">
+                <Link
+                  style={{ textDecoration: 'none' }}
+                  class="nav-link"
+                  to="/user/cart"
+                >
                   <ShoppingCartOutlinedIcon />
                 </Link>
               </li>
@@ -129,7 +133,7 @@ class Navbar extends React.Component {
             {isLoggedIn && !isAdmin && (
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <Link to="/user/signup" class="nav-link">
+                  <Link to="/admin/signup" class="nav-link">
                     Sell
                   </Link>
                 </li>

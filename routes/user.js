@@ -129,4 +129,18 @@ router.post("/api/user/orderPlaced", async (req, res) => {
   await User.findByIdAndUpdate(req.user.id, { products: [] });
   res.send({ message: "Order Placed Successfully" });
 });
+router.post("/api/history", async (req, res) => {
+  const user = await User.findById(req.user.id);
+  const arr = user.history;
+  req.body.map((product) => {
+    delete product._id;
+    user.history.push(product);
+  });
+  await user.save();
+  res.send({ message: "History updated successfully" });
+});
+router.get("/api/history", async (req, res) => {
+  const user = await User.findById(req.user.id);
+  res.send(user.history);
+});
 module.exports = router;
