@@ -33,18 +33,6 @@ function orderSummaryProduct({ product }) {
         <div className="col-xl-3 col-lg-4 col-md-5 d-flex justify-content-center">
           <div class="quantity mx-auto">
             <h2> Quantity: {product.quantity}</h2>
-            {/* <Button>
-              {' '}
-              <AddCircleIcon size="medium" />{' '}
-            </Button>
-            <Button>
-              {' '}
-              <RemoveCircleIcon size="medium" />{' '}
-            </Button>
-            <Button size="large">
-              {' '}
-              <DeleteIcon />{' '}
-            </Button> */}
           </div>
         </div>
       </div>

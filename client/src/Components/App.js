@@ -13,6 +13,7 @@ import {
   AdminInfo,
   PreProductForm,
   OrderSummary,
+  Orders
 } from './';
 import {
   BrowserRouter as Router,
@@ -138,6 +139,11 @@ class App extends Component {
             <PrivateRoute
               path="/user/cart"
               Component={Cart}
+              isLoggedIn={isLoggedIn}
+            />
+            <PrivateRoute
+              path="/user/orders"
+              Component={Orders}
               isLoggedIn={isLoggedIn}
             />
           </Switch>

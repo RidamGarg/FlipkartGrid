@@ -178,6 +178,7 @@ class Cart extends React.Component {
       <div>
         <Navbar />
         <Flash />
+        {/* <OrderSummary products={products} setPayment={this.setPayment} /> */}
         {!this.state.payment ? (
           <div class="bg-color">
             <h1 class="cart-heading">

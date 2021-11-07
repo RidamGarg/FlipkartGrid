@@ -58,6 +58,44 @@
   align-items: center;
   background-color: #f5e6ca;
 }
+
+.invoice
+{
+  background-color: white;
+  width: 50%;
+  margin-left: 25%;
+  padding: 2%;
+}
+
+.invoice-charges
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.invoice-head
+{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.invoice-foot
+{
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.invoice-item
+{
+  font-size: 1.2rem;
+}
+
+/* .invoice hr 
+{
+  width: 90%;
+  margin-left: 5%;
+} */
+
 @media screen and (min-width: 992px) {
   .cart-img {
     width: 55%;
