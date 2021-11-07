@@ -42,7 +42,7 @@ class Navbar extends React.Component {
                   Top Products <span class="sr-only">(current)</span>
                 </Link>
               </li>
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <a class="nav-link disabled" href="#">
                   Books
                 </a>
@@ -71,7 +71,7 @@ class Navbar extends React.Component {
                 <a class="nav-link disabled" href="#">
                   Kids
                 </a>
-              </li>
+              </li> */}
             </ul>
             <ul class="navbar-nav">
               <li class="nav-item">
