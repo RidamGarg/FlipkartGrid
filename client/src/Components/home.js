@@ -41,7 +41,7 @@ class Home extends React.Component {
               )}
               {isLoggedIn && !isAdmin && (
                 <Link to="/admin/signup" class="nav-link">
-                  Register as Admin
+                  Sell
                 </Link>
               )}
 

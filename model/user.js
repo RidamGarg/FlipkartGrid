@@ -22,6 +22,8 @@ const userSchema = new mongoose.Schema({
   admin: { type: mongoose.Schema.Types.ObjectId, ref: "Admin" },
   products: [productSchema],
   history: [productSchema],
+  walletBalance: { type: Number, default: 0 },
+  isReferMoneyAvailed: { type: Boolean, default: false },
 });
 
 userSchema.plugin(passportLocalMongoose);

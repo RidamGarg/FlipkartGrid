@@ -145,6 +145,26 @@ router.post("/api/history", async (req, res) => {
 });
 router.get("/api/history", async (req, res) => {
   const user = await User.findById(req.user.id);
-  res.send(user.history);
+  res.send(user);
 });
+router.post("/api/walletBalance", async (req, res) => {
+  const user = await User.findById(req.user.id);
+  if (!user.isReferMoneyAvailed) {
+    if (user.walletBalance === 500) {
+      user.isReferMoneyAvailed = true;
+      await user.save();
+      res.send({ message: "You have earned 100 points" });
+    } else {
+      user.walletBalance = user.walletBalance + 100;
+      await user.save();
+      res.send({ message: "You have earned 100 points" });
+    }
+  } else {
+    res.send({ message: "You have earned 100 points" });
+  }
+});
+// router.get("/api/walletBalance", async (req, res) => {
+//   const user = await User.findById(req.user.id);
+//   res.send({ walletBalance: user.walletBalance });
+// });
 module.exports = router;

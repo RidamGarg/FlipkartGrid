@@ -17,6 +17,7 @@ class productPage extends React.Component {
     this.state = {
       product: null,
       added: false,
+      modalText: 'Copy Link',
     };
   }
   componentDidMount = async () => {
@@ -31,11 +32,17 @@ class productPage extends React.Component {
     this.props.dispatch(userAddedProduct(this.state.product._id));
     this.setState({ added: true });
   };
-  myFunction = () => {
+  myFunction = async () => {
     const copyText = document.getElementsByClassName('referral-input')[0];
     copyText.select();
     copyText.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(copyText.value);
+    console.log('Modal text', this.state.modalText);
+    if (this.state.modalText !== 'Copied') {
+      await axios.post('/api/walletBalance');
+    }
+    console.log('Modal text 2', this.state.modalText);
+    this.setState({ modalText: 'Copied' });
   };
   render() {
     const { product, added } = this.state;
@@ -92,15 +99,21 @@ class productPage extends React.Component {
               <div class="card card-all text-white card-title">
                 <div class="card-body">
                   <div className="intro">
-                    <h2> {product.name}</h2>
-                    <button
-                      type="button"
-                      class="btn btn-primary btn-icon"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
-                    >
-                      <i class="icon fas fa-share-alt"></i>
-                    </button>
+                    <div className="d-flex justify-content-between">
+                      <h2> {product.name}</h2>
+                      {isLoggedIn && (
+                        <div style={{ width: 50 }}>
+                          <i
+                            type="button"
+                            class="btn btn-primary btn-icon"
+                            data-toggle="modal"
+                            data-target="#exampleModal"
+                            class="icon fas fa-share-alt"
+                            style={{ marginLeft: 20 }}
+                          ></i>
+                        </div>
+                      )}
+                    </div>
 
                     <div
                       class="modal fade mt-5"
@@ -149,7 +162,7 @@ class productPage extends React.Component {
                               type="button"
                               class="btn btn-primary"
                             >
-                              Copy Link
+                              {this.state.modalText}
                             </button>
                           </div>
                         </div>

@@ -1,6 +1,7 @@
 import react, { useEffect, useState } from 'react';
 import { Navbar, Flash } from '../index';
 import '../../stylesheets/orders.css';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import axios from 'axios';
 
 // const data = [
@@ -47,10 +48,12 @@ function ParticularOrder(props) {
 
 function Orders() {
   const [orderHistory, setOrderHistory] = useState(null);
+  const [walletBalance, setWalletBalance] = useState(0);
   useEffect(() => {
     axios.get('/api/history').then((response) => {
       console.log('history', response.data);
-      setOrderHistory(response.data);
+      setOrderHistory(response.data.history);
+      setWalletBalance(response.data.walletBalance);
     });
   }, []);
   return (
@@ -59,7 +62,9 @@ function Orders() {
       <h2>My Orders</h2>
       <div className="orders-div">
         <div className="row my-orders-head">
-          <div className="col-3"></div>
+          <div className="col-3">
+            <AccountBalanceWalletIcon fontSize="large" /> : {walletBalance}
+          </div>
           <div className="col-3">Product</div>
           <div className="col-2">Price</div>
           <div className="col-2">Order Date</div>
