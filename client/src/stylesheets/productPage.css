@@ -143,3 +143,45 @@ button:focus {
 .admin-img {
   background-color: red;
 }
+.intro {
+  position: relative;
+}
+
+.icon {
+  color: black;
+  font-size: 1.6rem;
+}
+
+.btn-icon {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  position: absolute;
+  right: 40px;
+  top: -5px;
+  background-color: transparent;
+  border: none;
+}
+.btn-icon:hover {
+  background-color: transparent !important;
+  border: none !important;
+  outline: transparent !important;
+}
+.btn-icon:focus {
+  background-color: transparent !important;
+  border: none;
+  outline: transparent;
+  box-shadow: none;
+}
+.modal-body {
+  color: black;
+  font-size: 1rem;
+}
+
+.referral-input {
+  margin-top: 5px;
+  border-radius: 10px;
+  width: 95%;
+  border: 1px solid black;
+  background-color: lightsteelblue;
+}

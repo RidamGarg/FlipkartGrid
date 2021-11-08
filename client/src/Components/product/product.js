@@ -25,7 +25,7 @@ function Product(props) {
   return (
     <div className="main-prod">
       <Card className={`${classes.root} my-card m-3`}>
-        <CardActionArea className="px-5 py-3">
+        <CardActionArea className="px-5 py-2">
           <CardMedia
             component="img"
             alt="iPhone"
@@ -42,7 +42,6 @@ function Product(props) {
               {product.name.length > 7
                 ? product.name.substring(0, 5) + '...'
                 : product.name.substring(0, 7)}
-              {/* {product.name.substring(0,5) + ".."} */}
             </Typography>
             <Typography variant="subtitle1" className="my-1 text-primary">
               {product.category}

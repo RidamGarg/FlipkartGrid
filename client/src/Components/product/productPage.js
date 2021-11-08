@@ -85,7 +85,63 @@ class productPage extends React.Component {
             <div class="main-info mx-3">
               <div class="card card-all text-white card-title">
                 <div class="card-body">
-                  <h2> {product.name}</h2>
+                  <div className="intro">
+                    <h2> {product.name}</h2>
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-icon"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                    >
+                      <i class="icon fas fa-share-alt"></i>
+                    </button>
+
+                    <div
+                      class="modal fade mt-5"
+                      id="exampleModal"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                              Referral Link
+                            </h5>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            Here is your referral link
+                            <br></br>
+                            <input
+                              className="referral-input"
+                              value={window.location.href}
+                              type="text"
+                            />
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="Price">
                     <h2>
                       {' '}
