@@ -77,7 +77,7 @@ class productPage extends React.Component {
                       {added ? 'Added' : 'Add to Cart'}
                     </button>
                     <Link to="/user/cart" style={{ textDecoration: 'none' }}>
-                      <button>
+                      <button onClick={this.handleClick}>
                         {' '}
                         <i class="fas fa-shopping-cart"> </i> Buy Now
                       </button>
