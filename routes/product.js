@@ -9,8 +9,8 @@ const Product = require("../model/product");
 const shortid = require("shortid");
 const Razorpay = require("razorpay");
 const razorpay = new Razorpay({
-  key_id: process.env.Key,
-  key_secret: process.env.KeySecret,
+  key_id: "rzp_test_MUih5KXjGElwhD",
+  key_secret: "Im4MVQShmBR0og8qoHWG6gey",
 });
 router.post(
   "/add/product",

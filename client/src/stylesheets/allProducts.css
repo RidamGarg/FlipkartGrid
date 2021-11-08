@@ -2,10 +2,25 @@
 
 #allProducts {
   font-family: 'Roboto Condensed !important';
+  flex-wrap: wrap;
+  /* width: 900px; */
+  /* overflow: hidden; */
 }
 #allProducts .cardSubtitle {
   font-weight: 400;
 }
 #allProducts .cardPrice {
   font-weight: 300;
+}
+#carouselExampleIndicators {
+  /* width: 50%; */
+  height: 500px;
+
+  margin: 0 auto;
+  text-align: center;
+}
+.carousel-img {
+  margin: 0 auto;
+  height: 500px !important;
+  width: 900px !important;
 }

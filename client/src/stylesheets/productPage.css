@@ -90,7 +90,7 @@ button:focus {
 .card-title,
 .card-description {
   border-radius: 30px;
-  background-color: #EDEDED;
+  background-color: #ededed;
   font-size: 1.2rem;
 }
 .ratings-button {

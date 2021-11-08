@@ -23,7 +23,7 @@ class CartProduct extends React.Component {
               to={`/product/${product.id}`}
               style={{ textDecoration: 'none' }}
             >
-              <div className="img-div d-flex justify-content-center pb-3">
+              <div className="img-div d-flex justify-content-center pb-3 pt-3">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -33,13 +33,13 @@ class CartProduct extends React.Component {
             </Link>
           </div>
 
-          <div className="col-xl-6 col-lg-5 col-md-7">
+          <div className="col-xl-6 col-lg-5 col-md-7 pt-5">
             <div class="main-info">
               <h3>{product.name}</h3>
               <h2>Final Price: {product.price}</h2>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-5 d-flex justify-content-center">
+          <div className="col-xl-3 col-lg-4 col-md-5 d-flex justify-content-center pt-5">
             <div class="quantity mx-auto">
               <h2> Quantity: {product.quantity}</h2>
               <Button onClick={() => addProductToCart(product.id)}>
