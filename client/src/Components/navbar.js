@@ -42,36 +42,6 @@ class Navbar extends React.Component {
                   Top Products <span class="sr-only">(current)</span>
                 </Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                  Books
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                  Electronics
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                  Beauty
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                  Men's Fashion
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                  Beauty
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                  Kids
-                </a>
-              </li>
             </ul>
             <ul class="navbar-nav">
               <li class="nav-item">
