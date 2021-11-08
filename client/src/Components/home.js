@@ -59,7 +59,7 @@ class Home extends React.Component {
           </div>
         </header>
         <div>
-          <h2 className="text-white">SaveMore</h2>
+          <h2 className="text-white">EBuy</h2>
           <p className="fw-normal text-light">
             Welcome to EBuy <br />
             Fashion &amp; Clothing is the one makes <br /> you look awesome and
