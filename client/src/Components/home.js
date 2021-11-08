@@ -21,7 +21,7 @@ class Home extends React.Component {
       >
         <header className="mx-5">
           <div>
-            <h3 className="float-md-start text-white">SaveMore</h3>
+            <h3 className="float-md-start text-white">EBuy</h3>
             <nav className="nav justify-content-center float-md-end HomeNavbar">
               <Link to="/" className="nav-link active">
                 Home
@@ -61,7 +61,7 @@ class Home extends React.Component {
         <div>
           <h2 className="text-white">SaveMore</h2>
           <p className="fw-normal text-light">
-            Welcome to SaveMore <br />
+            Welcome to EBuy <br />
             Fashion &amp; Clothing is the one makes <br /> you look awesome and
             unique from others!
           </p>
@@ -71,7 +71,7 @@ class Home extends React.Component {
           </Link>
         </div>
         <footer>
-          <p className="lead text-muted">&copy; SaveMore</p>
+          <p className="lead text-muted">&copy; EBuy</p>
         </footer>
       </div>
     );
