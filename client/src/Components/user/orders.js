@@ -37,7 +37,7 @@ function ParticularOrder(props) {
         </div>
         <div className="col-3">{order.name}</div>
         <div className="col-2">₹ {order.price} /-</div>
-        <div className="col-2">{order.createdAt}</div>
+        <div className="col-2">{order.createdAt.substring(0,10)}</div>
         <div className="col-2">Delivered</div>
       </div>
       <br />
