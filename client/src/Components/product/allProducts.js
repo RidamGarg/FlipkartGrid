@@ -33,62 +33,89 @@ class allProducts extends React.Component {
       <div>
         <Navbar />
         <Flash />
-        <div
-          id="carouselExampleIndicators"
-          class="carousel slide"
-          data-ride="carousel"
-        >
-          <ol class="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              class="active"
-            ></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                class="d-block w-100 carousel-img"
-                src="https://www.apple.com/v/macbook-pro-14-and-16/a/images/meta/macbook-pro-14-and-16_overview__fz0lron5xyuu_og.png"
-                alt="First slide"
-              />
+        <div>
+          <div
+            id={`carousel-1`}
+            className="carousel slide"
+            data-bs-ride="carousel"
+            data-bs-interval="3000"
+            h="50"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target={`#carousel-1`}
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target={`#carousel-1`}
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target={`#carousel-1`}
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
             </div>
-            <div class="carousel-item">
-              <img
-                class="d-block w-100 carousel-img"
-                src="https://img.freepik.com/free-photo/dark-haired-woman-with-red-lipstick-smiles-leans-stand-with-clothes-holds-package-pink-background_197531-17609.jpg?size=626&ext=jpg"
-                alt="Second slide"
-              />
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  style={{ height: '60vh' }}
+                  src="https://s3b.cashify.in/gpro/uploads/2019/09/16135517/buyback_offer_banner.png"
+                  class="d-block w-100 carousel-offer-img"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  style={{ height: '60vh' }}
+                  src="https://www.rummycentral.com/static/promotion_images/diwali-dhamka-inner-promotion.f14592593a32.png"
+                  class="d-block w-100 carousel-offer-img"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  style={{ height: '60vh' }}
+                  src="https://kinloindia.com/wp-content/uploads/2021/03/s5.jpg"
+                  class="d-block w-100 carousel-offer-img"
+                  alt="..."
+                />
+              </div>
             </div>
-            <div class="carousel-item">
-              <img
-                class="d-block w-100 carousel-img"
-                src="https://png.pngtree.com/png-clipart/20200225/original/pngtree-special-offer-sale-banner-template-design-with-colorful-design-isolated-on-png-image_5264798.jpg"
-                alt="Third slide"
-              />
-            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target={`#carousel-1`}
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target={`#carousel-1`}
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          <a
-            class="carousel-control-prev"
-            href="#carouselExampleIndicators"
-            role="button"
-            data-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a
-            class="carousel-control-next"
-            href="#carouselExampleIndicators"
-            role="button"
-            data-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
         </div>
+
         <div className=" justify-content-around  mt-3 d-flex" id="allProducts">
           {data.map(function (product) {
             return (

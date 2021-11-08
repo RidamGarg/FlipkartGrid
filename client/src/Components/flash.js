@@ -40,7 +40,7 @@ class Flash extends Component {
     const error = userError || adminError || productError;
     const success = userMessage || adminMessage || productMessage;
     return (
-      <div className="mt-4 mb-0" style={{ width: '50%', margin: 'auto' }}>
+      <div className=" mb-0" style={{ width: '50%', margin: 'auto' }}>
         {error && (
           <div
             class="alert alert-danger alert-dismissible fade show"
