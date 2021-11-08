@@ -1,6 +1,7 @@
-import react from 'react';
+import react, { useEffect,useState } from 'react';
 import { Navbar, Flash } from '../index';
 import '../../stylesheets/orders.css';
+import axios from "axios";
 
 const data = [
   {
@@ -32,12 +33,12 @@ function ParticularOrder(props) {
     <div>
       <div className="row">
         <div className="col-3">
-          <img src={order.src} className="order-image" />
+          <img src={order.image} className="order-image" />
         </div>
         <div className="col-3">{order.name}</div>
         <div className="col-2">₹ {order.price} /-</div>
-        <div className="col-2">{order.orderDate}</div>
-        <div className="col-2">{order.status}</div>
+        <div className="col-2">{order.createdAt}</div>
+        <div className="col-2">Delivered</div>
       </div>
       <br />
     </div>
@@ -45,10 +46,17 @@ function ParticularOrder(props) {
 }
 
 function Orders() {
+  const [orderHistory,setOrderHistory] = useState(null);
+  useEffect(() => {
+    axios.get('/api/history').then((response) => {
+      console.log('history', response.data);
+      setOrderHistory(response.data);
+    });
+  }, []);
   return (
     <div className="orders">
-     <Navbar />
-     <h2>My Orders</h2>
+      <Navbar />
+      <h2>My Orders</h2>
       <div className="orders-div">
         <div className="row my-orders-head">
           <div className="col-3"></div>
@@ -59,7 +67,7 @@ function Orders() {
         </div>
         <br />
         <br />
-        {data.map((order) => {
+        {orderHistory?.map((order) => {
           return <ParticularOrder order={order} />;
         })}
       </div>
