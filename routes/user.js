@@ -130,14 +130,18 @@ router.post("/api/user/orderPlaced", async (req, res) => {
   res.send({ message: "Order Placed Successfully" });
 });
 router.post("/api/history", async (req, res) => {
-  const user = await User.findById(req.user.id);
-  const arr = user.history;
-  req.body.map((product) => {
-    delete product._id;
-    user.history.push(product);
-  });
-  await user.save();
-  res.send({ message: "History updated successfully" });
+  try {
+    const user = await User.findById(req.user.id);
+    const arr = user.history;
+    req.body.map((product) => {
+      delete product._id;
+      user.history.push(product);
+    });
+    await user.save();
+    res.send({ message: "History updated successfully" });
+  } catch (e) {
+    res.send({ error: e });
+  }
 });
 router.get("/api/history", async (req, res) => {
   const user = await User.findById(req.user.id);
