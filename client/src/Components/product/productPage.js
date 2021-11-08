@@ -31,6 +31,12 @@ class productPage extends React.Component {
     this.props.dispatch(userAddedProduct(this.state.product._id));
     this.setState({ added: true });
   };
+  myFunction = () => {
+    const copyText = document.getElementsByClassName('referral-input')[0];
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+  };
   render() {
     const { product, added } = this.state;
     const { isLoggedIn } = this.props.authUser;
@@ -135,6 +141,15 @@ class productPage extends React.Component {
                               data-dismiss="modal"
                             >
                               Close
+                            </button>
+                            <button
+                              onClick={() => {
+                                this.myFunction();
+                              }}
+                              type="button"
+                              class="btn btn-primary"
+                            >
+                              Copy Link
                             </button>
                           </div>
                         </div>
