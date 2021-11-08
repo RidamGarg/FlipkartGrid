@@ -4,9 +4,9 @@ html {
 #HomePage {
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('https://i.pinimg.com/originals/ba/f2/e3/baf2e3ced7971515ea34718d473dae49.jpg');
+    url('https://img.etimg.com/thumb/msid-86452681,width-1200,height-900/industry/services/retail/e-commerce-firms-to-log-23-rise-in-gross-gmv-at-over-9-bn-during-festive-sale-this-year-redseer.jpg');
   background-size: cover;
-  background-position: center top;
+  background-position: center bottom;
   background-repeat: no-repeat;
   text-align: center;
   object-fit: cover;
