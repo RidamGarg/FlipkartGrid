@@ -3,10 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Navbar, Product, Flash } from '../';
-
+import { connect } from 'react-redux';
 import styles from '../../stylesheets/styles.css';
 import '../../stylesheets/allProducts.css';
-
+import { getAllProducts } from '../../actions/product';
 class allProducts extends React.Component {
   constructor() {
     super();
@@ -16,7 +16,16 @@ class allProducts extends React.Component {
   }
   componentDidMount = async () => {
     const res = await axios.get('/api/products');
+    this.props.dispatch(getAllProducts());
     this.setState({ data: res.data });
+  };
+  getProduct = async (str = '') => {
+    var r = new RegExp(str, 'i');
+
+    const { products } = this.props.product;
+    console.log('getProducts products', products);
+    const reqArray = products.filter((product) => product.name.match(r));
+    this.setState({ data: reqArray });
   };
   render() {
     const { data } = this.state;
@@ -31,7 +40,7 @@ class allProducts extends React.Component {
     }
     return (
       <div>
-        <Navbar />
+        <Navbar getProduct={this.getProduct} />
         <Flash />
         <div>
           <div
@@ -133,5 +142,7 @@ class allProducts extends React.Component {
     );
   }
 }
-
-export default allProducts;
+const mapStateToProps = ({ product }) => {
+  return { product };
+};
+export default connect(mapStateToProps)(allProducts);

@@ -2,17 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import HomeIcon from '@material-ui/icons/Home';
+import { TextField } from '@material-ui/core/';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import SearchIcon from '@material-ui/icons/Search';
 import { logout } from '../actions/user';
 
 import styles from '../stylesheets/styles.css';
 
 class Navbar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      product: '',
+    };
+  }
+  onTextChange = (e) => {
+    if (!e.target.value) {
+      if (this.props.getProduct) this.props.getProduct();
+    } else {
+      this.setState({ product: e.target.value });
+    }
+  };
   onClickLogout = () => {
     this.props.dispatch(logout());
   };
   render() {
     const { isAdmin, isLoggedIn } = this.props.authUser;
+    let { getProduct } = this.props;
+    if (!getProduct) getProduct = () => console.log('products');
     return (
       <div className="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark ProductsNavbar">
@@ -41,6 +58,24 @@ class Navbar extends React.Component {
                   {' '}
                   Top Products <span class="sr-only">(current)</span>
                 </Link>
+              </li>
+              <li class="d-flex align-items-center">
+                <TextField
+                  id="standard-basic"
+                  class="ml-2"
+                  // variant="outlined"
+                  onChange={this.onTextChange}
+                  style={{ backgroundColor: 'white' }}
+                />
+              </li>
+              <li class="d-flex align-items-center">
+                <button
+                  type="button"
+                  class="btn btn-outline-success btn-sm ml-1"
+                  onClick={() => getProduct(this.state.product)}
+                >
+                  <SearchIcon />
+                </button>
               </li>
             </ul>
             <ul class="navbar-nav">

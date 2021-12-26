@@ -8,6 +8,7 @@ import {
   Product_Deleted_Success,
   Product_Data_Success,
   Product_Update_Form_Triggered,
+  All_Products,
 } from './actionType';
 import axios from 'axios';
 const config = {
@@ -41,6 +42,25 @@ const updateProductFailed = (error) => {
 const updateProductSuccess = () => {
   return {
     type: Product_Update_Success,
+  };
+};
+export const getAllProductsAction = (data) => {
+  return {
+    type: All_Products,
+    products: data,
+  };
+};
+export const getAllProducts = () => {
+  return (dispatch) => {
+    axios
+      .get('/api/products')
+      .then((res) => {
+        console.log('getAllProductsAction', res);
+        dispatch(getAllProductsAction(res.data));
+      })
+      .catch((err) => {
+        dispatch(getAllProductsAction(err));
+      });
   };
 };
 export const productAdd = (fd) => {

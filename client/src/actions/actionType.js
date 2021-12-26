@@ -24,6 +24,7 @@ export const Product_Update_Failed = 'Product_Update_Failed';
 export const Product_Deleted_Success = 'Product_Deleted_Success';
 export const Product_Data_Success = 'Product_Data_Success';
 export const Product_Update_Form_Triggered = 'Product_Update_Form_Triggered';
+export const All_Products = 'All_Product';
 
 export const User_Added_Product = 'User_Added_Product';
 export const User_Subtracted_Product = 'User_Subtracted_Product';
