@@ -92,7 +92,7 @@ class allProducts extends React.Component {
               <div class="carousel-item">
                 <img
                   style={{ height: '60vh' }}
-                  src="https://kinloindia.com/wp-content/uploads/2021/03/s5.jpg"
+                  src="https://s3b.cashify.in/gpro/uploads/2019/09/16135517/buyback_offer_banner.png"
                   class="d-block w-100 carousel-offer-img"
                   alt="..."
                 />

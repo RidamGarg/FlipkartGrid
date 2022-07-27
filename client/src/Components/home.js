@@ -39,17 +39,7 @@ class Home extends React.Component {
                   Login
                 </Link>
               )}
-              {isLoggedIn && !isAdmin && (
-                <Link to="/admin/signup" class="nav-link">
-                  Sell
-                </Link>
-              )}
 
-              {isLoggedIn && isAdmin && (
-                <Link to="/add/product" class="nav-link">
-                  Add Product
-                </Link>
-              )}
               {isLoggedIn && (
                 <Link onClick={this.onClickLogout} class="nav-link">
                   Logout
